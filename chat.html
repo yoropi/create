@@ -1,0 +1,168 @@
+<!-- このHTMLは正常に動作したときのSourceをコピーしたものです。 -->
+
+<div ng-app="joinnyApp" class="ng-scope">
+    <script id="message-list.html" type="text/ng-template"><div class="list-group message-list collection"><a class="btn btn-default btn-block ng-cloak" ng-click="fetchPreviousMessages()" ng-hide="messagesAllFetched">古いメッセージを取得</a><div class="list-group-item collection-item message-item" ng-repeat="item in messages"><div class="media"><div class="media-left"><a ng-href="/members/{{item.sender.id}}"><img class="img-circle media-object" ng-src="{{item.sender_image}}" /></a></div> <div class="media-body"><div class="pull-right time_ago text-muted"><span style="white-space:nowrap;" title="{{item.created_at}}"></span>{{item.time_ago}}前</div><h4 class="media-heading">{{item.sender.name}}</h4><span class="message-body" ng-bind-html="item.message | linkify"></span></div> </div></div></div></script>
+    <script id="conversation.html" type="text/ng-template"><div class="message-container"><message-list data-id="1313"></message-list><div class="message-form"><form name="message" ng-submit="sendMessage($event)" novalidate="novalidate" action="{{reply_url}}" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="5awFJFNkRwp0iRQt4fApeFnf5d2WYvMFCUnq1dIWG2ENtPYvPGWDBMKA2Xcg0eU5xX1LMG66oaq+tkSGKNaQnA==" /><span class="error" ng-show="message.messageContent.$error.maxlength">必須</span><input ng-value="receiver_id" type="hidden" name="message[id]" id="message_id" /><textarea class="form-control" rows="3" ng-model="messageContent" placeholder="メッセージを入力...." required="required" ng-maxlength="1024" jp-input="" name="message[body]" id="message_body">
+</textarea><input type="submit" name="commit" value="送信" class="btn btn-block btn-lg btn-primary" ng-disabled="message.$invalid" /></form></div></div></script>
+    <!-- ngView: -->
+    <div class="ng-view ng-scope">
+        <div class="message-container ng-scope">
+            <div class="list-group message-list collection" data-id="1313">
+                <a class="btn btn-default btn-block ng-hide" ng-click="fetchPreviousMessages()" ng-hide="messagesAllFetched">古いメッセージを取得</a>
+                <!-- ngRepeat: item in messages -->
+                <div class="list-group-item collection-item message-item ng-scope partner" ng-repeat="item in messages">
+                    <div class="media">
+                        <div class="media-left">
+                            <a ng-href="/members/200" href="/members/200">
+                                <img class="img-circle media-object" ng-src="https://graph.facebook.com/10206610561239121/picture?width=480&amp;height=480"
+                                    src="https://graph.facebook.com/10206610561239121/picture?width=480&amp;height=480">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <span class="message-body ng-binding" ng-bind-html="item.message | linkify">[コンタクト] すみません。バグが見つかって前回メッセージが見れなかったとのことご迷惑おかけしました！改めてこちらで閲覧できますでしょうか？
+
+                            </span>
+                            <div class="pull-right time_ago text-muted ng-binding">
+                                <span style="white-space:nowrap;" title="2018-01-16T07:26:06.000Z">16:26</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end ngRepeat: item in messages -->
+                <div class="list-group-item collection-item message-item ng-scope user" ng-repeat="item in messages">
+                    <div class="media">
+                        <div class="media-body">
+                            <div class="pull-right time_ago text-muted ng-binding">
+                                <span style="white-space:nowrap;" title="2018-01-16T08:03:16.000Z">17:03</span>
+                            </div>
+                            <span class="message-body ng-binding" ng-bind-html="item.message | linkify">確認できました。 ご対応いただき、ありがとうございます。
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- end ngRepeat: item in messages -->
+                <div class="label-container">
+                    <span>2018/01/17/ (Wed)</span>
+                </div>
+                <div class="list-group-item collection-item message-item ng-scope partner" ng-repeat="item in messages">
+                    <div class="media">
+                        <div class="media-left">
+                            <a ng-href="/members/200" href="/members/200">
+                                <img class="img-circle media-object" ng-src="https://graph.facebook.com/10206610561239121/picture?width=480&amp;height=480"
+                                    src="https://graph.facebook.com/10206610561239121/picture?width=480&amp;height=480">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <span class="message-body ng-binding" ng-bind-html="item.message | linkify">こちらこそお手数おかけしました！ 契約が終わりましたらトライアルワークよろしくお願いします。 今日、サーバサイドのエンジニアさんと打ち合わせしてきたのですがアンギュラーJSって上野さんできますか？
+                            </span>
+                            <div class="pull-right time_ago text-muted ng-binding">
+                                <span style="white-space:nowrap;" title="2018-01-16T15:05:59.000Z">00:05</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end ngRepeat: item in messages -->
+                <div class="list-group-item collection-item message-item ng-scope user" ng-repeat="item in messages">
+                    <div class="media">
+                        <div class="media-body">
+                            <div class="pull-right time_ago text-muted ng-binding">
+                                <span style="white-space:nowrap;" title="2018-01-16T15:34:41.000Z">00:34</span>
+                            </div>
+                            <span class="message-body ng-binding" ng-bind-html="item.message | linkify">angularjsは経験無いです。 そのため、自分が請け負う業務範囲についてもお伺いしたいと思っておりました。
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- end ngRepeat: item in messages -->
+                <div class="label-container">
+                    <span>2018/01/21/ (Sun)</span>
+                </div>
+                <div class="list-group-item collection-item message-item ng-scope user" ng-repeat="item in messages">
+                    <div class="media">
+                        <div class="media-body">
+                            <div class="pull-right time_ago text-muted ng-binding">
+                                <span style="white-space:nowrap;" title="2018-01-20T16:24:59.000Z">01:24</span>
+                            </div>
+                            <span class="message-body ng-binding" ng-bind-html="item.message | linkify">夜分遅くに失礼します。 Altjsとかは利用されているか、スカイプでお話をするのに際して、ご確認いただけますでしょうか。 typescript等コンテンツ内で使われているか、技術者の方にご確認いただければ助かります。
+                                お手数ですが、よろしくお願いいたします。
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- end ngRepeat: item in messages -->
+                <div class="label-container">
+                    <span>2018/01/23/ (Tue)</span>
+                </div>
+                <div class="list-group-item collection-item message-item ng-scope user" ng-repeat="item in messages">
+                    <div class="media">
+                        <div class="media-body">
+                            <div class="pull-right time_ago text-muted ng-binding">
+                                <span style="white-space:nowrap;" title="2018-01-23T07:57:27.000Z">16:57</span>
+                            </div>
+                            <span class="message-body ng-binding" ng-bind-html="item.message | linkify">すいません、テスト文送信しますので、無視してください。</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- end ngRepeat: item in messages -->
+                <div class="list-group-item collection-item message-item ng-scope partner" ng-repeat="item in messages">
+                    <div class="media">
+                        <div class="media-left">
+                            <a ng-href="/members/200" href="/members/200">
+                                <img class="img-circle media-object" ng-src="https://graph.facebook.com/10206610561239121/picture?width=480&amp;height=480"
+                                    src="https://graph.facebook.com/10206610561239121/picture?width=480&amp;height=480">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <span class="message-body ng-binding" ng-bind-html="item.message | linkify">はーい！届いております！！</span>
+                            <div class="pull-right time_ago text-muted ng-binding">
+                                <span style="white-space:nowrap;" title="2018-01-23T09:09:31.000Z">18:09</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end ngRepeat: item in messages -->
+            </div>
+            <div class="message-form">
+                <form name="message" ng-submit="sendMessage($event)" novalidate="novalidate" action="" accept-charset="UTF-8"
+                    method="post" class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength">
+                    <input name="utf8" type="hidden" value="✓" autocomplete="off">
+                    <input type="hidden" name="authenticity_token" value="5awFJFNkRwp0iRQt4fApeFnf5d2WYvMFCUnq1dIWG2ENtPYvPGWDBMKA2Xcg0eU5xX1LMG66oaq+tkSGKNaQnA=="
+                        autocomplete="off">
+                    <span class="error ng-hide" ng-show="message.messageContent.$error.maxlength">必須</span>
+                    <input ng-value="receiver_id" type="hidden" name="message[id]" id="message_id" autocomplete="off">
+                    <textarea class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength"
+                        rows="3" ng-model="messageContent" placeholder="メッセージを入力...." required="required" ng-maxlength="1024"
+                        jp-input="" name="message[body]" id="message_body"></textarea>
+                    <input type="submit" name="commit" value="送信" class="btn btn-block btn-lg btn-primary" ng-disabled="message.$invalid"
+                        disabled="disabled">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .list-group { /*list-group-item*/ }
+    .list-group .list-group-item { /*user*/ /*partner*/ }
+    .list-group .list-group-item.user { /*media*/ }
+    .list-group .list-group-item.user .media { text-align: right; /*media-body*/ }
+    .list-group .list-group-item.user .media .media-body .message-body.ng-binding { display: inline-block; max-width: 75%; position: relative; border-radius: 10px; color: #fff; background-color: #00b2e6; border: 1px solid transparent; padding: 8px; margin: 0 10px 0 5px !important; text-align: left; word-wrap: break-word; }
+    .list-group .list-group-item.user .media .media-body .message-body.ng-binding:after { position: absolute; top: calc(50% - 10px); right: -17px; border: 10px solid transparent; border-left-color: #00b2e6; content: ""; }
+    .list-group .list-group-item.user .media .media-body .time_ago.text-muted.ng-binding { display: inline-block; text-align: left; vertical-align: bottom; line-height: 1em; }
+    .list-group .list-group-item.user .media .media-body .time_ago.text-muted.ng-binding span { display: inline-block; font-size: 9px; color: #999; text-align: left; vertical-align: bottom; }
+    .list-group .list-group-item.partner { /*media*/ }
+    .list-group .list-group-item.partner .media { text-align: left; /*media-body*/ }
+    .list-group .list-group-item.partner .media .media-left { vertical-align: bottom; }
+    .list-group .list-group-item.partner .media .media-body .message-body.ng-binding { display: inline-block; max-width: 70%; position: relative; border-radius: 10px; color: #000; background-color: #e4e8ec; border: 1px solid transparent; padding: 8px; margin: 0 5px 0 10px !important; text-align: left; word-wrap: break-word; }
+    .list-group .list-group-item.partner .media .media-body .message-body.ng-binding:before { position: absolute; bottom: 8px; left: -17px; border: 10px solid transparent; border-right-color: #e4e8ec; content: ""; }
+    .list-group .list-group-item.partner .media .media-body .time_ago.text-muted.ng-binding { display: inline-block; text-align: right; vertical-align: bottom; line-height: 1em; }
+    .list-group .list-group-item.partner .media .media-body .time_ago.text-muted.ng-binding span { display: inline-block; font-size: 9px; color: #999; text-align: left; vertical-align: bottom; }
+    .media-body .pull-right.time_ago.text-muted.ng-binding { float: none !important; }
+    
+    /*list-group*/
+    /**dateLine**/
+    .label-container { margin: 20px auto; position: relative; text-align: center; z-index: 1; color: #9fa8b1; font-size: 14px; width: 95%; }
+    .label-container > span { background: #fff; padding: 0 15px; }
+    .label-container > span:before { border-top: 1px solid #ccc; content: ""; margin: 0 auto; position: absolute; top: 50%; left: 0; right: 0; bottom: 0; width: 100%; z-index: -1; }
+</style>
+<script src="/common/js/chat.js"></script>
